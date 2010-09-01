@@ -1,0 +1,13 @@
+
+Har du sett dette før? Demonstrasjon av hvordan disse problemene oppleves. Antagelig en kort demo/video. 4m
+Introduksjon av taler, og til tema. 2m
+Hva er garbage collection? Har vi det? Trenger vi det? 3m
+Hva er tråder? 3m
+Tilbake til introduksjonsdemo - hvordan analysere denne? (tråder, live lock) 7m
+Først med kommandolinjeverktøy
+Deretter med VisualVM
+Kanskje også med Yourkit
+Hva har skjedd - vi ser på kode. 5m
+Demonstrasjon av minnelekkasje 3m
+Analyse av minnelekkasje 5m
+SubmitIT

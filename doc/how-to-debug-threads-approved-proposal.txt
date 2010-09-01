@@ -1,0 +1,17 @@
+How to debug threads in your production VM!
+
+
+Ever had to restart your application server because of high load and
+abysmal response times? Do you know how to determine if the crash was
+caused by a garbage collection timeout or perhaps a live lock?
+
+This talk will show you some of the most common smells to look for,
+some tools to analyse the problem, and a few answers!
+
+
+
+- Ever seen this before? Show the usual symptoms, to wake the audience (2') 
+- Show how to get thread dumps, from the command line and with Visual VM (with plugins) (2') 
+- How to analyse the dumps (2') 
+- Give solutions to the two-three most common problems (2')
+
