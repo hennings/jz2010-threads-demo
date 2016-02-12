@@ -10,4 +10,8 @@
         http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
     <context:component-scan base-package="net.spjelkavik.jz2010"/>
+
+    <bean id="riceCookerDao" class="net.spjelkavik.jz2010.RiceCookerSearcher"
+          scope="prototype"/>
+
 </beans>
