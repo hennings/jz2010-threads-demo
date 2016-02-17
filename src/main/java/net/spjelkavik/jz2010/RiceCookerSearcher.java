@@ -1,21 +1,26 @@
 package net.spjelkavik.jz2010;
 
-import org.apache.log4j.Logger;
-import org.springframework.stereotype.Component;
-
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.*;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.FutureTask;
 import java.util.concurrent.atomic.AtomicInteger;
+
+import org.apache.log4j.Logger;
+import org.springframework.stereotype.Component;
 
 /**
  * User: hennings
  * Date: 01.sep.2010
  */
+@Component
 public class RiceCookerSearcher {
 
     final static AtomicInteger statusId = new AtomicInteger(0);
@@ -32,10 +37,8 @@ public class RiceCookerSearcher {
         es.submit(task);
         try {
             return task.get();
-        } catch (InterruptedException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-        } catch (ExecutionException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
         }
         return null;
     }
@@ -73,7 +76,7 @@ public class RiceCookerSearcher {
                 while (true) {
                     URLConnection c = u.openConnection();
                     c.connect();
-                    Thread.sleep(1000 * 60);
+                    Thread.sleep(1000 * 4);
                 }
 
             }catch (Exception e) {
