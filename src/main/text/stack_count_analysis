@@ -1,0 +1,31 @@
+#!/bin/sh
+
+tmpfile="/tmp/jstack-$$"
+if [ -f "$1" ]; then
+  echo "Using '$1'"
+  fn=$1
+else
+  echo "Using default"
+  jstack `jps | grep -E "Boot|Resin"| awk '{print $1}'` > $tmpfile
+  fn=$tmpfile
+fi
+
+echo "File: $fn;$1;"
+echo "RUNNABLE:"
+
+grep -A 3 ": RUNNABLE" $fn | grep -B 1 '\-\-' | grep -v '\-\-'|sort | uniq -c | sort -n| tail -5
+
+
+echo "TIMED_WAITING:"
+grep -A 2 ": TIMED" $fn | grep -B 1 '\-\-' | grep -v '\-\-'|sort | uniq -c | sort -n| tail -3
+
+echo "WAITING:"
+grep -A 6 ": WAITING" $fn | grep -B 1 '\-\-' | grep -v '\-\-'|sort | uniq -c | sort -n| tail -3
+
+
+echo "BLOCKED:"
+grep -A 6 ": BLOCKED" $fn | grep -B 1 '\-\-' | grep -v '\-\-'|sort | uniq -c | sort -n| tail -3
+
+
+[ -f $tmpfile ] && rm $tmpfile
+

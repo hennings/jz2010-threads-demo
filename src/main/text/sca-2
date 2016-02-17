@@ -1,0 +1,16 @@
+Using 'src/main/text/js-14632-2'
+File: src/main/text/js-14632-2;src/main/text/js-14632-2;
+RUNNABLE:
+      1 	at java.net.AbstractPlainSocketImpl.accept(AbstractPlainSocketImpl.java:409)
+      1 	at sun.nio.ch.ServerSocketChannelImpl.accept(ServerSocketChannelImpl.java:250)
+      3 	at sun.nio.ch.WindowsSelectorImpl$SubSelector.access$400(WindowsSelectorImpl.java:278)
+TIMED_WAITING:
+      1 	at net.spjelkavik.jz2010.RiceCookerSearcher$StatusThread.run(RiceCookerSearcher.java:79)
+      1 	at org.apache.catalina.core.StandardServer.await(StandardServer.java:407)
+WAITING:
+      1 	at java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:209)
+      1 	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1067)
+      3 	at org.apache.tomcat.util.threads.TaskQueue.take(TaskQueue.java:103)
+BLOCKED:
+      1 	at net.spjelkavik.jz2010.SearchController.getDetail(SearchController.java:37)
+      5 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
